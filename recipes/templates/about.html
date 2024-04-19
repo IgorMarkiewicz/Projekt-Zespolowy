@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+  <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+  </head>
+
+  <body>
+    {% include "navbar.html" %}
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1 class="text-center mb-4">About</h1>
+          <h3 class="text-center mb-4">Welcome to our recipe website! We are cooking enthusiasts who want to share our favorite recipes and ideas for delicious meals with you.</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="text-center text-secondary">Our mission is to inspire people to cook at home, explore new flavors, and create memorable dining experiences. Whether you're a seasoned chef or just starting out in the kitchen, we hope you find our collection of recipes helpful and enjoyable.</p>
+        </div>
+        <div class="col">
+          <p class="text-center text-secondary">At our website, you'll find a wide range of recipes for every occasion, from quick and easy weeknight dinners to impressive dishes for special occasions. We believe that cooking should be fun, creative, and accessible to everyone, and we're here to help you discover the joy of cooking.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h3 class="text-center mb-4">Thank you for visiting our website, and happy cooking!</h3>
+        </div>
+      </div>
+    </div>
+    {% include "footer.html" %}
+  </body>
+
+</html>
