@@ -23,7 +23,7 @@ Our project is a recipe sharing website where users can log in to add, rate, and
 
 **Backend:** Django
 
-**Database:** PostgreSQL
+**Database:** SQLite
 ## Authors
 
 * [@IgorMarkiewicz](https://github.com/IgorMarkiewicz)
