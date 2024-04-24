@@ -6,12 +6,16 @@
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
-  <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+  <link rel="shortcut icon" href="{% static "favicon.png" %}" type="image/x-icon">
   </head>
 
   <body>
     {% include "navbar.html" %}
-
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}" role="alert">
+        {{ message }}
+      </div>
+    {% endfor %}
     {% include "footer.html" %}
   </body>
 
