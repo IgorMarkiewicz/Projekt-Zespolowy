@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ recipe.title }}</title>
+</head>
+<body>
+    <h1>{{ recipe.title }}</h1>
+    <p><strong>Ingredients:</strong></p>
+    <ul>
+        {% for ingredient in recipe.ingredients.all %}
+            <li>{{ ingredient.name }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Categories:</strong></p>
+    <ul>
+        {% for category in recipe.categories.all %}
+            <li>{{ category.name }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Body:</strong></p>
+    <p>{{ recipe.body }}</p>
+    <p><strong>User:</strong> {{ recipe.user.username }}</p>
+    <p><strong>Rating:</strong> {{ recipe.rating_id }}</p>
+    <p><strong>Created at:</strong> {{ recipe.created_at }}</p>
+    <!-- You can add more details about the recipe here as needed -->
+</body>
+</html>
