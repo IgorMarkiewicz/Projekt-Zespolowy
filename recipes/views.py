@@ -1,11 +1,18 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from recipes.models import Recipe
 
-
-# Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    recipes = Recipe.objects.all()
+    return render(request, 'index.html', {'recipes': recipes})
 
+def recipe_grid_alt_view(request):
+    recipes = Recipe.objects.all()
+    return render(request, 'recipe_grid_alt.html', {'recipes': recipes})
 
 def about(request):
     return render(request, 'about.html')
+
+def recipe_detail(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    return render(request, 'recipe_detail.html', {'recipe': recipe})

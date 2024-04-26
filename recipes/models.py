@@ -38,6 +38,7 @@ class Recipe(models.Model):
     categories = models.ManyToManyField(Category)
     rating_id = models.IntegerField()
     created_at = models.DateTimeField()
+    picture_url = models.URLField(default='https://cdn.georgeinstitute.org/sites/default/files/styles/width1920_fallback/public/2020-10/world-food-day-2020.png')
 
     def __str__(self):
         return self.title
