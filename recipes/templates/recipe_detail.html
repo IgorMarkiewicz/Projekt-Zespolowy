@@ -4,26 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ recipe.title }}</title>
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="shortcut icon" href="{% static "favicon.png" %}" type="image/x-icon">
+     <style>
+         
+        
+        .content{
+            text-align: center;
+            list-style-position: inside;
+            font-size: 1vw;
+            
+        }
+        .recipe-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+            width: auto;
+
+        }
+        .list{
+            margin-right: 75px;
+        }
+        .recipe-content{
+            font-size: 1vw;
+            margin: 50px;
+            
+        ;
+            
+        }
+       
+
+
+    </style>
 </head>
 <body>
+    {% include "navbar.html" %}
+
+    <img src="{{ recipe.picture_url }}" class="recipe-image" alt="Recipe Image">
+
+    <div class="content">
     <h1>{{ recipe.title }}</h1>
     <p><strong>Ingredients:</strong></p>
-    <ul>
+    <ul class="list">
         {% for ingredient in recipe.ingredients.all %}
             <li>{{ ingredient.name }}</li>
         {% endfor %}
     </ul>
     <p><strong>Categories:</strong></p>
-    <ul>
+    <ul class="list">
         {% for category in recipe.categories.all %}
             <li>{{ category.name }}</li>
         {% endfor %}
     </ul>
-    <p><strong>Body:</strong></p>
-    <p>{{ recipe.body }}</p>
-    <p><strong>User:</strong> {{ recipe.user.username }}</p>
+    <p><strong>Recipe:</strong></p>
+    <p class="recipe-content">{{ recipe.body }}</p>
+    <p><strong>Author:</strong> {{ recipe.user.username }} </p>
     <p><strong>Rating:</strong> {{ recipe.rating_id }}</p>
     <p><strong>Created at:</strong> {{ recipe.created_at }}</p>
+    </div>
+
     <!-- You can add more details about the recipe here as needed -->
+
+    {% include "footer.html" %}
 </body>
 </html>
