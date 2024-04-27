@@ -9,6 +9,8 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <link rel="shortcut icon" href="{% static "favicon.png" %}" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
      <style>
          
         
@@ -46,7 +48,7 @@
 
     <img src="{{ recipe.picture_url }}" class="recipe-image" alt="Recipe Image">
 
-    <div class="content">
+    <div class="container">
     <h1>{{ recipe.title }}</h1>
     <p><strong>Ingredients:</strong></p>
     <ul class="list">
@@ -62,13 +64,14 @@
     </ul>
     <p><strong>Recipe:</strong></p>
     <p class="recipe-content">{{ recipe.body }}</p>
-    <p><strong>Author:</strong> {{ recipe.user.username }} </p>
+        <a href="{% url 'account_recipes' user_id=recipe.user.pk %}">{{ recipe.user.username }}</a>
     <p><strong>Rating:</strong> {{ recipe.rating_id }}</p>
     <p><strong>Created at:</strong> {{ recipe.created_at }}</p>
+   
     </div>
 
     <!-- You can add more details about the recipe here as needed -->
 
-    {% include "footer.html" %}
+    
 </body>
 </html>

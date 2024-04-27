@@ -14,7 +14,7 @@ def recipe_grid_alt_view(request):
 def about(request):
     return render(request, 'about.html')
 
-def recipe_detail(request, recipe_id,):
+def recipe_detail(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
     return render(request, 'recipe_detail.html', {'recipe': recipe})
 def account_recipes(request, user_id,):
