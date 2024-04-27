@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="shortcut icon" href="{% static "favicon.png" %}" type="image/x-icon">
+</head>
+
+<body>
+    {% include "navbar.html" %}
+    {% for message in messages %}
+        <div class="alert {{ message.tags }}" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <h1>Recipes of  {{ user.username }}</h1>
+    {% include 'recipe_grid_alt.html' %}
+    
+    {% include "footer.html" %}
+</body>
+</html>
